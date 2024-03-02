@@ -1,7 +1,13 @@
-start:
-    docker compose up -d
+dev:
+    SITE_ADDRESS=localhost docker compose up -d
 
-stop:
+prod:
+    SITE_ADDRESS=guyc.at docker compose up -d
+
+deploy:
+    ssh prod "cd guyc-at && git pull && just prod"
+
+bye:
     docker compose down
 
 cert:

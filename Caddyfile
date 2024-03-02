@@ -1,3 +1,9 @@
-localhost, guyc.at {
+{
+	servers {
+		protocols h1 h2
+	}
+}
+
+{$SITE_ADDRESS} {
 	respond "Hello, world!"
 }
