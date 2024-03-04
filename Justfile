@@ -1,8 +1,22 @@
+export PIPENV_VENV_IN_PROJECT := "1"
+
 dev:
-    SITE_ADDRESS=localhost docker compose up -d
+    SITE_ADDRESS=localhost docker compose up -d --build
 
 prod:
     SITE_ADDRESS=guyc.at docker compose up -d
+
+fmt:
+    pipenv run ruff format .
+
+lint:
+    pipenv run ruff check --fix .
+    pipenv run mypy --pretty .
+
+test:
+    pipenv run pytest .
+
+qa: fmt lint test
 
 deploy:
     ssh prod "cd guyc-at && git pull && just prod"

@@ -1,10 +1,15 @@
 services:
+  app:
+    build: .
+    container_name: app
+    
   caddy:
     image: caddy:2-alpine
     container_name: caddy
     restart: unless-stopped
     environment:
-      - SITE_ADDRESS=$SITE_ADDRESS
+      SITE_ADDRESS: ${SITE_ADDRESS}
+      API_HOST: "app:3000"
     ports:
       - "80:80"
       - "443:443"
