@@ -2,3 +2,4 @@
 !/Pipfile*
 !/app
 !/run.sh
+**/__pycache__

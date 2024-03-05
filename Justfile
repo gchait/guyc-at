@@ -1,6 +1,6 @@
 export PIPENV_VENV_IN_PROJECT := "1"
 
-dev:
+dev: fmt
     SITE_ADDRESS=localhost docker compose up -d --build
 
 prod:
@@ -16,9 +16,7 @@ lint:
 test:
     pipenv run pytest .
 
-qa: fmt lint test
-
-deploy:
+deploy: lint test
     ssh prod "cd guyc-at && git pull && just prod"
 
 bye:
