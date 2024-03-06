@@ -1,10 +1,13 @@
 FROM python:3.12-slim AS base
 
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-ENV PIP_DISABLE_PIP_VERSION_CHECK=1
-ENV PIPENV_VENV_IN_PROJECT=1
-ENV PORT=3000
+ARG PORT
+ENV PORT ${PORT}
+ENV PYTHONDONTWRITEBYTECOD 1
+ENV PYTHONUNBUFFERED 1
+ENV PIP_DISABLE_PIP_VERSION_CHECK 1
+ENV PIPENV_VENV_IN_PROJECT 1
+ENV APP_DIR /appdir
+ENV APP_USER appuser
 
 FROM base AS builder
 WORKDIR /
@@ -13,14 +16,16 @@ COPY Pipfile* .
 RUN pipenv sync
 
 FROM base
-RUN useradd --uid 1000 --no-create-home \
-    --home-dir /nonexistent --shell /usr/sbin/nologin app
+RUN useradd --uid 1000 \
+    --no-create-home \
+    --home-dir /nonexistent \
+    --shell /usr/sbin/nologin ${APP_USER}
 
 COPY --from=builder /.venv /.venv
 ENV PATH=/.venv/bin:$PATH
-WORKDIR /app
+WORKDIR ${APP_DIR}
 COPY . .
 
-USER app
+USER ${APP_USER}
 EXPOSE ${PORT}
-CMD ["sh", "./run.sh"]
+CMD ["./run.sh"]

@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash -ex
 
-uvicorn app.main:app \
+uvicorn guyc_at.main:app \
     --no-server-header \
     --proxy-headers \
     --host '0.0.0.0' \
