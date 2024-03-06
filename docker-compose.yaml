@@ -1,5 +1,7 @@
 services:
   api:
+    networks:
+      - guyc-at
     build:
       context: .
       args:
@@ -12,7 +14,9 @@ services:
     restart: unless-stopped
 
   caddy:
-    image: caddy:2-alpine
+    networks:
+      - guyc-at
+    image: caddy:2.7-alpine
     container_name: caddy
     restart: unless-stopped
     environment:
@@ -30,3 +34,7 @@ services:
 volumes:
   caddy_data:
   caddy_config:
+
+networks:
+  guyc-at:
+    name: guyc-at

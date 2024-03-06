@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/sh -ex
 
 uvicorn guyc_at.main:app \
     --no-server-header \

@@ -1,4 +1,4 @@
-FROM python:3.12-slim AS base
+FROM python:3.12-alpine AS base
 
 ARG PORT
 ENV PORT ${PORT}
@@ -16,11 +16,7 @@ COPY Pipfile* .
 RUN pipenv sync
 
 FROM base
-RUN useradd --uid 1000 \
-    --no-create-home \
-    --home-dir /nonexistent \
-    --shell /usr/sbin/nologin ${APP_USER}
-
+RUN adduser -DHs /sbin/nologin -h /dev/null -g ${APP_USER} ${APP_USER}
 COPY --from=builder /.venv /.venv
 ENV PATH=/.venv/bin:$PATH
 WORKDIR ${APP_DIR}
