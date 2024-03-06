@@ -25,11 +25,11 @@ push MSG: test
     git commit -m "{{MSG}}"
     git push origin
 
-deploy:
-    ssh prod "cd guyc-at && git pull && just prod"
-
 prune:
     docker image prune -f
+
+deploy:
+    ssh prod "cd guyc-at && git pull && just prod prune"
 
 cert:
     docker compose cp caddy:/data/caddy/pki/authorities/local/root.crt .
