@@ -2,7 +2,7 @@
 hi.
 """
 
-from litestar import Litestar, get
+from litestar import Litestar, MediaType, get
 
 
 @get("/")
@@ -17,4 +17,10 @@ async def get_book(book_id: int) -> dict[str, int]:
     return {"book_id": book_id}
 
 
-app = Litestar([index, get_book])
+@get(path="/healthz", media_type=MediaType.TEXT)
+async def health_check() -> str:
+    """hi."""
+    return "healthy"
+
+
+app = Litestar([index, get_book, health_check])
