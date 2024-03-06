@@ -2,12 +2,13 @@
 hi.
 """
 
-from litestar import Litestar, MediaType, get
+from litestar import Litestar, MediaType, Request, get
 
 
 @get("/")
-async def index() -> str:
+async def index(request: Request) -> str:
     """hi."""
+    print("headers:", request.headers.to_header_list())
     return "Hello, world!"
 
 
