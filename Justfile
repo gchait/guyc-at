@@ -12,10 +12,12 @@ test:
     pipenv run pytest .
 
 dev: fmt lint
-    SITE_ADDRESS=localhost docker compose up -d --build
+    docker compose build
+    SITE_ADDRESS=localhost docker compose up -d
 
 prod:
-    SITE_ADDRESS=guyc.at docker compose up -d --pull=always
+    docker compose pull
+    SITE_ADDRESS=guyc.at docker compose up -d
 
 push MSG: test
     docker compose build --push
