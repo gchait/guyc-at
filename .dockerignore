@@ -1,5 +1,3 @@
 *
-!/Pipfile*
 !/guyc_at
-!/run.sh
-**/__pycache__
+**/.dart_tool

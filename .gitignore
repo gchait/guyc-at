@@ -1,6 +1,3 @@
 *.swp
-__pycache__
-.pytest_cache
-.ruff_cache
-.venv
+.dart_tool
 root.crt
