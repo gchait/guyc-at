@@ -5,6 +5,7 @@ services:
     build:
       context: .
       args:
+        - SRC
         - PORT
       platforms:
         - "linux/amd64"

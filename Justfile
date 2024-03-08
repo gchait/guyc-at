@@ -1,15 +1,15 @@
-export PIPENV_VENV_IN_PROJECT := "1"
 export REPO := "gchait/guyc-at"
+export SRC := "guyc_at"
 export PORT := "3000"
 
 fmt:
-    pipenv run ruff format .
+    dart format {{SRC}}
 
 lint:
-    pipenv run ruff check --fix .
+    dart analyze {{SRC}}
 
 test:
-    pipenv run pytest .
+    cd {{SRC}} && dart test
 
 dev: fmt lint
     docker compose build
