@@ -4,7 +4,7 @@ import 'package:http/http.dart';
 import 'package:test/test.dart';
 
 void main() {
-  final port = '3000';
+  final port = Platform.environment['PORT'] ?? '8080';
   final host = 'http://127.0.0.1:$port';
   late Process p;
 
@@ -14,6 +14,7 @@ void main() {
       ['run', 'bin/server.dart'],
       environment: {'PORT': port},
     );
+
     // Wait for server to start and print to stdout.
     await p.stdout.first;
   });
