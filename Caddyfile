@@ -6,9 +6,9 @@
 
 {$SITE_ADDRESS} {
 	encode gzip
-	
-	handle /api/* {
-		uri strip_prefix /api
+	rewrite /favicon.ico /favicon.svg
+
+	handle_path /api/* {
 		reverse_proxy {$API_HOST}
 	}
 

@@ -6,7 +6,7 @@ COPY ${SRC}/pubspec.* ./
 RUN dart pub get
 
 COPY ${SRC} .
-RUN dart compile exe bin/server.dart -o bin/server
+RUN dart compile exe ./bin/server.dart -o ./bin/server
 
 FROM scratch
 ARG PORT
@@ -16,4 +16,6 @@ COPY --from=build /runtime/ /
 COPY --from=build /app/bin/server ./
 
 EXPOSE ${PORT}
+ENV PORT ${PORT}
+
 CMD ["./server"]
