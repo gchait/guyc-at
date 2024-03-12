@@ -15,7 +15,6 @@ void main() {
       environment: {'PORT': port},
     );
 
-    // Wait for server to start and print to stdout.
     await p.stdout.first;
   });
 
@@ -24,13 +23,13 @@ void main() {
   test('Root', () async {
     final response = await get(Uri.parse('$host/'));
     expect(response.statusCode, 200);
-    expect(response.body, 'Hello, world!\n');
+    expect(response.body, 'Hello, world!');
   });
 
   test('Echo', () async {
     final response = await get(Uri.parse('$host/echo/hello'));
     expect(response.statusCode, 200);
-    expect(response.body, 'hello\n');
+    expect(response.body, 'hello');
   });
 
   test('404', () async {

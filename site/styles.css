@@ -1,4 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+/* @import url(https://fonts.googleapis.com/css?family=Roboto); */
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  src: url(/roboto.ttf) format("truetype");
+}
 
 html,
 body {
@@ -6,10 +12,15 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
-#output {
+#top-bar {
+  padding: 20px;
+  text-align: center;
+}
+
+#content {
   padding: 20px;
   text-align: center;
 }
