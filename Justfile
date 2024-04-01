@@ -1,31 +1,18 @@
 export PROD_HOST := "guyc.at"
-export REPO := "gchait/guyc-at"
-export SRC := "guyc_at"
-export PORT := "3000"
 
-fmt:
-    dart format {{SRC}}
-    dart fix --apply {{SRC}}
-
-lint:
-    dart analyze {{SRC}}
-
-test:
-    cd {{SRC}} && dart test
-
-dev: fmt lint
-    docker compose build
+dev: pull    
     docker compose up -d
 
-prod:
-    docker compose pull
+prod: pull
     SITE_ADDRESS={{PROD_HOST}} docker compose up -d
 
-push MSG: test
-    docker compose build --push
+push MSG:
     git add -A
     git commit -m "{{MSG}}"
     git push origin
+
+pull:
+    docker compose pull
 
 prune:
     docker image prune -f
