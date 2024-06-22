@@ -2,7 +2,7 @@ services:
   caddy:
     networks:
       - guyc-at
-    image: caddy:2.7-alpine
+    image: caddy:2-alpine
     container_name: caddy
     restart: unless-stopped
     environment:
