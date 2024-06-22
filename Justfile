@@ -1,5 +1,9 @@
 export PROD_HOST := "guyc.at"
 
+stop:
+    docker compose stop
+    docker container prune -f
+
 dev: pull    
     docker compose up -d
 
