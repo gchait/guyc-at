@@ -8,8 +8,8 @@
 	encode gzip
 	rewrite /favicon.ico /favicon.png
 	
-	redir /windows.ps1 https://raw.githubusercontent.com/setup/gchait/main/Windows/prepare.ps1
-	redir /fedora.sh https://raw.githubusercontent.com/setup/gchait/main/Fedora/prepare.sh
+	redir /windows.ps1 https://raw.githubusercontent.com/gchait/setup/main/Windows/prepare.ps1
+	redir /fedora.sh https://raw.githubusercontent.com/gchait/setup/main/Fedora/prepare.sh
 
 	handle {
 		root * /srv
