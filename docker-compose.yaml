@@ -1,12 +1,12 @@
 services:
   caddy:
-    networks:
-      - guyc-at
-    image: caddy:2-alpine
     container_name: caddy
+    image: caddy:2-alpine
     restart: unless-stopped
     environment:
       SITE_ADDRESS: ${SITE_ADDRESS:-localhost}
+    networks:
+      - guyc-at
     ports:
       - "80:80"
       - "443:443"
