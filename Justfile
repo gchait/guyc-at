@@ -1,7 +1,7 @@
-dev: pull    
+dev: align
     docker compose up -d
 
-prod: pull
+prod: align
     SITE_ADDRESS=guyc.at docker compose up -d
 
 deploy MSG:
@@ -10,7 +10,8 @@ deploy MSG:
     git push origin
     ssh prod "cd guyc-at && git pull && just prod prune"
 
-pull:
+align:
+    mkdir -p ./caddy/data ./caddy/config
     docker compose pull
 
 prune:
