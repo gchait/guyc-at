@@ -22,4 +22,6 @@ stop:
     docker container prune -f
 
 cert:
-    docker compose cp caddy:/data/caddy/pki/authorities/local/root.crt .
+    docker compose cp \
+        caddy:/data/caddy/pki/authorities/local/root.crt \
+        ./caddy/localhost.crt
