@@ -1,25 +1,24 @@
+networks:
+  guyc-at:
+    name: guyc-at
 services:
   caddy:
-    container_name: caddy
-    image: caddy:2-alpine
+    image: caddy:2
     restart: unless-stopped
+    container_name: caddy
+    working_dir: /etc/caddy
     environment:
       SITE_ADDRESS: ${SITE_ADDRESS:-localhost}
     networks:
       - guyc-at
     ports:
-      - "80:80"
-      - "443:443"
+      - 80:80
+      - 443:443
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy/data:/data
+      - ./caddy/config:/config
+      - ./server:/etc/caddy
       - ./site:/srv
-      - caddy_data:/data
-      - caddy_config:/config
-
-volumes:
-  caddy_data:
-  caddy_config:
-
-networks:
-  guyc-at:
-    name: guyc-at
+    command:
+      - caddy
+      - run
