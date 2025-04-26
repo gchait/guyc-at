@@ -1,0 +1,50 @@
+<style>
+  /* Make table lines invisible */
+  table {
+    border-collapse: collapse;
+  }
+
+  table,
+  th,
+  td {
+    border: none;
+  }
+
+  /* Add some spacing for better readability */
+  td,
+  th {
+    padding: 8px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  /* Add subtle alternating row colors for better readability */
+  tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+  }
+
+  /* Social icons styling */
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+  }
+
+  .social-icons a {
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+
+  .social-icons a:hover {
+    opacity: 1;
+  }
+</style>
