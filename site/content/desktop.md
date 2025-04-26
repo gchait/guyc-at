@@ -1,7 +1,6 @@
 ---
 menus: main
 title: Desktop
-url: /desktop
 ---
 
 ### My Desktop Setup
