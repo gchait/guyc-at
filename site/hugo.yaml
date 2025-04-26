@@ -1,0 +1,31 @@
+baseURL: https://guyc.at
+theme: hugo-bearblog
+
+languageCode: en-US
+enableRobotsTXT: true
+
+title: Guy Chait
+author: Guy Chait
+
+params:
+  title: Guy Chait
+  description: Personal website of Guy Chait
+  favicon: /favicon.png
+  hideMadeWithLine: true
+
+  social:
+    github: gchait
+    linkedin: guy-chait
+
+disableKinds:
+  - taxonomy
+  - term
+  - "404"
+  - RSS
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: rose-pine
