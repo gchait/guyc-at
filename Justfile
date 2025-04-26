@@ -12,7 +12,8 @@ deploy MSG:
 
 build:
   mkdir -p ./caddy/data ./caddy/config
-  hugo --quiet --minify -s site
+  rm -rf ./site/public/*
+  hugo --quiet --minify -s ./site
   docker compose pull
 
 prune:

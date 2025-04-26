@@ -1,7 +1,6 @@
 ---
 menus: main
 title: Udemy
-url: /udemy
 certificates:
   - UC-f266b26a-25ae-4954-8330-08c9386d2987
   - UC-c4d38633-def6-4f32-844f-a921645c0d85

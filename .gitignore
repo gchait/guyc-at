@@ -1,4 +1,4 @@
 *.swp
-caddy
-site/public/
 .hugo_build.lock
+caddy/
+site/public/
