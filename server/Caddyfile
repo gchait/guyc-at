@@ -11,9 +11,7 @@
 	redir /windows.ps1 https://raw.githubusercontent.com/gchait/setup/main/Windows/prepare.ps1
 	redir /fedora.sh https://raw.githubusercontent.com/gchait/setup/main/Fedora/prepare.sh
 
-	handle {
-		root * /srv
-		try_files {path} {path}/ /index.html
-		file_server
-	}
+  root * /srv
+  try_files {path} {path}/ /index.html
+  file_server
 }
