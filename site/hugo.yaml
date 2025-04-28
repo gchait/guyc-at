@@ -1,11 +1,9 @@
-baseURL: https://guyc.at
-theme: hugo-bearblog
-
-languageCode: en-US
-enableRobotsTXT: true
-
 title: Guy Chait
-author: Guy Chait
+baseURL: https://guyc.at
+
+enableRobotsTXT: true
+languageCode: en-US
+theme: hugo-bearblog
 
 params:
   title: Guy Chait
