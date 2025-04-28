@@ -19,7 +19,7 @@ build:
 prune:
   docker image prune -f
 
-stop:
+stop: prune
   docker compose stop
   docker container prune -f
 
