@@ -1,8 +1,8 @@
 dev: build
-  docker compose up -d
+  docker compose up -d --force-recreate
 
 prod: build
-  SITE_ADDRESS=guyc.at docker compose up -d
+  SITE_ADDRESS=guyc.at docker compose up -d --force-recreate
 
 deploy MSG:
   git add -A
