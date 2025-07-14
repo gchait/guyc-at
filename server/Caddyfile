@@ -17,16 +17,5 @@
 
 	log {
 		output stdout
-		format filter {
-			fields {
-				bytes_read delete
-				request>headers delete
-				request>remote_port delete
-				request>tls delete
-				resp_headers delete
-				size delete
-				user_id delete
-			}
-		}
 	}
 }
