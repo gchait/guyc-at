@@ -14,7 +14,6 @@ title: Desktop
 | Keyboard         | Aula F75 Pro                        |
 | Headset          | Sennheiser Game One                 |
 | Speaker          | JBL Flip 6                          |
-| Wireless Charger | OnePlus Warp Charge 50              |
 | Docking Station  | Belkin 14-Port USB-C                |
 | Laptop Stand     | Jarlink Aluminum Vertical           |
 | Case             | Corsair 5000D Airflow White         |
