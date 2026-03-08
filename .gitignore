@@ -2,3 +2,4 @@ caddy/
 site/public/
 *.swp
 .hugo_build.lock
+.idea/

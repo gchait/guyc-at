@@ -8,7 +8,7 @@ theme: hugo-bearblog
 params:
   title: Guy Chait
   description: Personal website of Guy Chait
-  favicon: /favicon.png
+  favicon: /favicon.svg
   hideMadeWithLine: true
 
   social:
